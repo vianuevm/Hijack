@@ -10,19 +10,17 @@ public class TankMovement : Vehicle {
 	public List<GameObject>  cannonBallShots;
 	// Use this for initialization
 	void Start () {
-		speed = 10f;
+		speed = 4f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKey(KeyCode.UpArrow)){
-			charControl.SimpleMove(transform.forward * speed);
+			transform.rigidbody.velocity = (transform.forward * speed);
 		}  else if(Input.GetKey(KeyCode.DownArrow)){
-			charControl.SimpleMove(transform.forward * speed * -1f);
+			transform.rigidbody.velocity = -1 * (transform.forward * speed);
 		}	
 
-		if (Input.GetKey(KeyCode.DownArrow)) transform.Translate(0, 0, -1* Time.deltaTime);
-		if (Input.GetKey(KeyCode.UpArrow)) transform.Translate(0, 0, 1* Time.deltaTime);
 		if (Input.GetKey(KeyCode.RightArrow)) transform.Rotate(0, 1, 0);
 		if (Input.GetKey(KeyCode.LeftArrow)) transform.Rotate(0, -1, 0);
 
@@ -35,7 +33,8 @@ public class TankMovement : Vehicle {
 			shot.rigidbody.AddForce(transform.forward * 500f);
 			cannonBallShots.Add(shot);
 			
-		}
+		}	
+
 	}
 	
 }
