@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class TankMovement : MonoBehaviour {
+public class TankMovement : Vehicle {
 	public float speed;
 	public Vector3 position;
 	public CharacterController charControl;
