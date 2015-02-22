@@ -8,6 +8,7 @@ public class TankMovement : Vehicle {
 	public GameObject cannonBall;
 	public GameObject shotLocation;
 	public List<GameObject>  cannonBallShots;
+	public GameObject explosion;
 	// Use this for initialization
 	void Start () {
 		speed = 4f;
@@ -29,7 +30,8 @@ public class TankMovement : Vehicle {
 	void FixedUpdate(){
 		if(Input.GetKeyDown(KeyCode.Space)){
 			GameObject shot = Instantiate(cannonBall) as GameObject;
-			shot.transform.position = shotLocation.transform.position;
+			GameObject boom = Instantiate(explosion) as GameObject;
+			boom.transform.position = shot.transform.position = shotLocation.transform.position;
 			shot.rigidbody.AddForce(transform.forward * 2000f);
 			cannonBallShots.Add(shot);
 		}

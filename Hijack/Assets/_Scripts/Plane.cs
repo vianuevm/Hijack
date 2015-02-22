@@ -8,6 +8,7 @@ public class Plane : Vehicle {
 	public GameObject cannonBall;
 	public GameObject shotLocation;
 	public List<GameObject>  cannonBallShots;
+	public bool hijacked = true;
 	// Use this for initialization
 	void Start () {
 		speed = 4f;
@@ -15,32 +16,25 @@ public class Plane : Vehicle {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.UpArrow)){
+		if(!hijacked){
+			rigidbody.useGravity = true;
+		}
+		if(Input.GetKey(KeyCode.UpArrow) && hijacked){
 			transform.rigidbody.velocity = (transform.forward * speed);
-		}  else if(Input.GetKey(KeyCode.DownArrow)){
+		}  else if(Input.GetKey(KeyCode.DownArrow) && hijacked){
 			transform.rigidbody.velocity = -1 * (transform.forward * speed);
-		} else {
+		} else if(hijacked) {
 			transform.rigidbody.velocity = Vector3.zero;
 		}
 		
-		if (Input.GetKey(KeyCode.RightArrow)) transform.Rotate(0, 1, 0);
-		if (Input.GetKey(KeyCode.LeftArrow)) transform.Rotate(0, -1, 0);
-		
+		if (Input.GetKey(KeyCode.RightArrow) && hijacked) transform.Rotate(0, 1, 0);
+		if (Input.GetKey(KeyCode.LeftArrow) && hijacked) transform.Rotate(0, -1, 0);
 	}
 	
 	void FixedUpdate(){
-		if(Input.GetKeyDown(KeyCode.Space)){
+		if(Input.GetKeyDown(KeyCode.Space) && hijacked){
 			GameObject shot = Instantiate(cannonBall) as GameObject;
 			shot.transform.position = shotLocation.transform.position;
-			shot.rigidbody.AddForce(transform.forward * 2000f);
-			cannonBallShots.Add(shot);
-		}
-		for(int i = 0; i < cannonBallShots.Count; ++i){
-			if(Mathf.Abs(cannonBallShots[i].transform.position.x - transform.position.x) > 10f && !cannonBallShots[i].renderer.isVisible){
-				Destroy(cannonBallShots[i]);
-				cannonBallShots.RemoveAt(i);
-				i-= 1;
-			}
 		}	
 	}
 	
