@@ -32,9 +32,14 @@ public class TankMovement : Vehicle {
 			shot.transform.position = shotLocation.transform.position;
 			shot.rigidbody.AddForce(transform.forward * 500f);
 			cannonBallShots.Add(shot);
-			
+		}
+		for(int i = 0; i < cannonBallShots.Count; ++i){
+			if(Mathf.Abs(cannonBallShots[i].transform.position.x - transform.position.x) > 1f && !cannonBallShots[i].renderer.isVisible){
+				Destroy(cannonBallShots[i]);
+				cannonBallShots.RemoveAt(i);
+				i-= 1;
+			}
 		}	
-
 	}
 	
 }
