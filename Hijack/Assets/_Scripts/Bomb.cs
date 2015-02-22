@@ -6,6 +6,7 @@ public class Bomb : MonoBehaviour {
 	public GameObject explosion;
 	public List<GameObject> bombs;
 	public float explosionTime;
+	public bool exploded;
 	// Use this for initialization
 	void Start () {
 		explosionTime = Time.time;
@@ -21,7 +22,7 @@ public class Bomb : MonoBehaviour {
 			GameObject boom = Instantiate(explosion) as GameObject;
 			boom.transform.position = transform.position;
 			Destroy(this.gameObject);
-			
+			explosionTime = Time.time;
 		}
 	}
 }

@@ -16,14 +16,14 @@ public class Plane : Vehicle {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!hijacked){
+		if(driver != null){
 			rigidbody.useGravity = true;
 		}
-		if(Input.GetKey(KeyCode.UpArrow) && hijacked){
+		if(Input.GetKey(KeyCode.UpArrow) && driver != null){
 			transform.rigidbody.velocity = -1*(transform.right * speed);
-		}  else if(Input.GetKey(KeyCode.DownArrow) && hijacked){
+		}  else if(Input.GetKey(KeyCode.DownArrow) && driver != null){
 			transform.rigidbody.velocity = (transform.right * speed);
-		} else if(hijacked) {
+		} else if(driver != null) {
 			transform.rigidbody.velocity = Vector3.zero;
 		}
 		
@@ -32,7 +32,7 @@ public class Plane : Vehicle {
 	}
 	
 	void FixedUpdate(){
-		if(Input.GetKeyDown(KeyCode.Space) && hijacked){
+		if(Input.GetKeyDown(KeyCode.Space) && driver != null){
 			GameObject shot = Instantiate(cannonBall) as GameObject;
 			shot.transform.position = shotLocation.transform.position;
 		}	
