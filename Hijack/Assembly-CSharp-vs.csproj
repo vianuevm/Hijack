@@ -47,11 +47,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Wade\_Scripts\Player.cs" />
+     <Compile Include="Assets\_Scripts\Bomb.cs" />
      <Compile Include="Assets\_Scripts\CannonBall.cs" />
      <Compile Include="Assets\_Scripts\Humv.cs" />
+     <Compile Include="Assets\_Scripts\HumvBullet.cs" />
      <Compile Include="Assets\_Scripts\Plane.cs" />
      <Compile Include="Assets\_Scripts\TankMovement.cs" />
      <Compile Include="Assets\_Scripts\Vehicle.cs" />
+     <None Include="Assets\Panzer_II_Ausf_F\readme.txt" />
+     <None Include="Assets\Panzer_II_Ausf_F\Shaders\Panzer Tracks.shader" />
+     <None Include="Assets\F16\license.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
