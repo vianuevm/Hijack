@@ -10,14 +10,17 @@ public class Player : MonoBehaviour {
 	
 	private Camera cam;
 	private Rigidbody rig;
+	private Collider col;
 	private bool w_down;
 	private bool a_down;
 	private bool s_down;
 	private bool d_down;
+	private bool e_down;
 
 	void Start() {
 		health = 100;
 		rig = transform.rigidbody;
+		col = transform.collider;
 		cam = GameObject.Find("Camera").camera;
 		w_down = a_down = s_down = d_down = false;
 	}
@@ -31,15 +34,33 @@ public class Player : MonoBehaviour {
 		cam_forward.Normalize();
 		cam_right.Normalize();
 
-		Vector3 player_vel = Vector3.zero;
-		/* let the player move some */
-		if (w_down) player_vel += cam_forward;
-		if (a_down) player_vel -= cam_right;
-		if (s_down) player_vel -= cam_forward;
-		if (d_down) player_vel += cam_right;
+		/* check if the player wants to get into a vehicle */
+		if (e_down && vehicle_near != null && vehicle_in == null) {
+			vehicle_in = vehicle_near;
+			vehicle_near = null;
+			vehicle_in.driver = this;
+			col.enabled = false;
+		} else if (e_down && vehicle_in != null) { /* check if they want to get out */
+			vehicle_in.driver = null;
+			vehicle_in = null;
+			col.enabled = true;
+			/* try this for now */
+		}
 
-		player_vel.y = rig.velocity.y;
-		rig.velocity = player_vel;
+		if (vehicle_in == null) { /* regular player movement */
+			Vector3 player_vel = Vector3.zero;
+			/* let the player move some */
+			if (w_down) player_vel += cam_forward;
+			if (a_down) player_vel -= cam_right;
+			if (s_down) player_vel -= cam_forward;
+			if (d_down) player_vel += cam_right;
+
+			player_vel.y = rig.velocity.y;
+			rig.velocity = player_vel;
+		} else {
+			rig.velocity = Vector3.zero;
+			transform.position = vehicle_in.transform.position;
+		}
 	}
 
 	void Update() {
@@ -48,6 +69,7 @@ public class Player : MonoBehaviour {
 		a_down = Input.GetKey(KeyCode.A);
 		s_down = Input.GetKey(KeyCode.S);
 		d_down = Input.GetKey(KeyCode.D);
+		e_down = Input.GetKeyDown(KeyCode.E);
 
 		/* poll to see if a vehicle is in the area */
 		RaycastHit[] hits = Physics.SphereCastAll(transform.position, 1.25f,
