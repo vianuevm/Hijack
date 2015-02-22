@@ -30,11 +30,11 @@ public class TankMovement : Vehicle {
 		if(Input.GetKeyDown(KeyCode.Space)){
 			GameObject shot = Instantiate(cannonBall) as GameObject;
 			shot.transform.position = shotLocation.transform.position;
-			shot.rigidbody.AddForce(transform.forward * 500f);
+			shot.rigidbody.AddForce(transform.forward * 2000f);
 			cannonBallShots.Add(shot);
 		}
 		for(int i = 0; i < cannonBallShots.Count; ++i){
-			if(Mathf.Abs(cannonBallShots[i].transform.position.x - transform.position.x) > 1f && !cannonBallShots[i].renderer.isVisible){
+			if(Mathf.Abs(cannonBallShots[i].transform.position.x - transform.position.x) > 10f && !cannonBallShots[i].renderer.isVisible){
 				Destroy(cannonBallShots[i]);
 				cannonBallShots.RemoveAt(i);
 				i-= 1;
