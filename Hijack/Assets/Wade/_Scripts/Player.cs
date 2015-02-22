@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	/* a reference to the vehicle that the player is currently in */
-	//public Vehicle vehicle;
+	public Vehicle vehicle;
 	public int health;
 	
 	private Camera cam;
@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
 		if (s_down) player_vel -= cam_forward;
 		if (d_down) player_vel += cam_right;
 
+		player_vel.y = rig.velocity.y;
 		rig.velocity = player_vel;
 	}
 
@@ -45,7 +46,12 @@ public class Player : MonoBehaviour {
 		w_down = Input.GetKey(KeyCode.W);
 		a_down = Input.GetKey(KeyCode.A);
 		s_down = Input.GetKey(KeyCode.S);
-		d_down = Input.GetKey(KeyCode.D);		
+		d_down = Input.GetKey(KeyCode.D);
+
+		/* poll to see if a vehicle is in the area */
+		RaycastHit[] hits = Physics.SphereCastAll(transform.position, 0.5f, 
+													transform.forward, 0);
+		if (hits.Length > 0) print("I am near something!");	
 	}
 
 }
