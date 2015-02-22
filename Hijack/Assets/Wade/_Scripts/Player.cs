@@ -4,7 +4,8 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	/* a reference to the vehicle that the player is currently in */
-	public Vehicle vehicle;
+	public Vehicle vehicle_in;
+	public Vehicle vehicle_near;
 	public int health;
 	
 	private Camera cam;
@@ -49,9 +50,15 @@ public class Player : MonoBehaviour {
 		d_down = Input.GetKey(KeyCode.D);
 
 		/* poll to see if a vehicle is in the area */
-		RaycastHit[] hits = Physics.SphereCastAll(transform.position, 0.5f, 
-													transform.forward, 0);
-		if (hits.Length > 0) print("I am near something!");	
+		RaycastHit[] hits = Physics.SphereCastAll(transform.position, 1.25f,
+													transform.forward, 0.01f);
+		bool is_vehicle = false;
+		foreach (RaycastHit hit in hits) {
+			if (hit.transform.tag == "Vehicle") {
+				vehicle_near = hit.transform.gameObject.GetComponent<Vehicle>();
+				is_vehicle = true;
+			}
+		}
+		if (!is_vehicle) vehicle_near = null;
 	}
-
 }

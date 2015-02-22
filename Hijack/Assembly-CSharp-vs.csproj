@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Wade\_Scripts\Player.cs" />
+     <Compile Include="Assets\_Scripts\CannonBall.cs" />
      <Compile Include="Assets\_Scripts\Humv.cs" />
      <Compile Include="Assets\_Scripts\Plane.cs" />
      <Compile Include="Assets\_Scripts\TankMovement.cs" />
