@@ -16,4 +16,10 @@ public class HumvBullet : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.tag == "Wall") {
+			Destroy (this.gameObject);
+		}
+	}
 }
