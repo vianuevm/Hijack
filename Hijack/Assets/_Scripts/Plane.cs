@@ -11,7 +11,7 @@ public class Plane : Vehicle {
 	public bool hijacked = true;
 	// Use this for initialization
 	void Start () {
-		speed = 4f;
+		speed = 10f;
 	}
 	
 	// Update is called once per frame
@@ -20,9 +20,9 @@ public class Plane : Vehicle {
 			rigidbody.useGravity = true;
 		}
 		if(Input.GetKey(KeyCode.UpArrow) && hijacked){
-			transform.rigidbody.velocity = (transform.forward * speed);
+			transform.rigidbody.velocity = -1*(transform.right * speed);
 		}  else if(Input.GetKey(KeyCode.DownArrow) && hijacked){
-			transform.rigidbody.velocity = -1 * (transform.forward * speed);
+			transform.rigidbody.velocity = (transform.right * speed);
 		} else if(hijacked) {
 			transform.rigidbody.velocity = Vector3.zero;
 		}

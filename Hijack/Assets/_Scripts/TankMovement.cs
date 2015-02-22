@@ -13,9 +13,14 @@ public class TankMovement : Vehicle {
 	void Start () {
 		speed = 4f;
 	}
+
+	void Update() {
+		if (driver == null) return;
+		MyUpdate();
+	}
 	
 	// Update is called once per frame
-	void Update () {
+	void MyUpdate () {
 		if(Input.GetKey(KeyCode.UpArrow)){
 			transform.rigidbody.velocity = (transform.forward * speed);
 		}  else if(Input.GetKey(KeyCode.DownArrow)){
@@ -27,7 +32,12 @@ public class TankMovement : Vehicle {
 
 	}
 	
-	void FixedUpdate(){
+	void FixedUpdate() {
+		if (driver == null) return;
+		MyFixedUpdate();
+	}
+
+	void MyFixedUpdate(){
 		if(Input.GetKeyDown(KeyCode.Space)){
 			GameObject shot = Instantiate(cannonBall) as GameObject;
 			GameObject boom = Instantiate(explosion) as GameObject;
