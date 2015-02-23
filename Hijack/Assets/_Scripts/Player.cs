@@ -1,21 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Script that controls player ground
+ * movement as well as status of the
+ * player.
+ * When scaling to 4 players I intend
+ * to use an array of an array of KeyCodes
+ * to allow one script for all players
+ */
+
 public class Player : MonoBehaviour {
 
 	/* a reference to the vehicle that the player is currently in */
 	public Vehicle vehicle_in;
 	public Vehicle vehicle_near;
 	public int health;
-	
-	private Camera cam;
-	private Rigidbody rig;
-	private Collider col;
-	private bool w_down;
-	private bool a_down;
-	private bool s_down;
-	private bool d_down;
-	public bool e_down;
+
+	/* made protected for the prototype control script */
+	protected Camera cam;
+	protected Rigidbody rig;
+	protected Collider col;
+	protected bool w_down;
+	protected bool a_down;
+	protected bool s_down;
+	protected bool d_down;
+	protected bool e_down;
 
 	void Start() {
 		health = 100;

@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Wade\_Scripts\ProtoPlayer.cs" />
      <Compile Include="Assets\_Scripts\Bomb.cs" />
      <Compile Include="Assets\_Scripts\CannonBall.cs" />
      <Compile Include="Assets\_Scripts\DontDestroy.cs" />

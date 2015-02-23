@@ -15,7 +15,7 @@ GameObject:
   - 54: {fileID: 5439570}
   m_Layer: 0
   m_Name: Humv
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b48b126d9cbb7fe46bed049987968eca, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -126,7 +126,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b48b126d9cbb7fe46bed049987968eca, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -146,7 +146,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b48b126d9cbb7fe46bed049987968eca, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -234,17 +234,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 107348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aceabb8f728a4bb8b429967031ed6ae, type: 3}
+  m_Script: {fileID: 11500000, guid: e0b864d76f18830448ec303208ccb00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   vehicleHealth: 0
   vehicleSpeed: 0
   vehicleArmor: 0
+  driver: {fileID: 0}
   speed: 0
   rotate_speed: 0
   position: {x: 0, y: 0, z: 0}
-  bullet: {fileID: 194202, guid: 0f1860f37e6474bde831e3710b26a11b, type: 2}
-  shotLocation: {fileID: 107352}
+  bullet: {fileID: 0}
+  shotLocation: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
