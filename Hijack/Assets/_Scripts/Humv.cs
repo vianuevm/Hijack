@@ -14,9 +14,13 @@ public class Humv : Vehicle {
 		speed = 10f;
 		rotate_speed = 3f;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void Update() {
+		if (driver == null) return;
+		MyUpdate();
+	}
+
+	void MyUpdate() {
 		if(Input.GetKey(KeyCode.UpArrow)){
 			transform.rigidbody.velocity = (transform.forward * speed);
 		}  else if(Input.GetKey(KeyCode.DownArrow)){

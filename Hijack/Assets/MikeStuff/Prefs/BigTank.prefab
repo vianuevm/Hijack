@@ -15,7 +15,7 @@ GameObject:
   - 54: {fileID: 5411460}
   m_Layer: 0
   m_Name: BigTank
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,7 +196,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 697ed3ee89f264b4d8109fff5c006c31, type: 2}
+  - {fileID: 2100000, guid: 1ad8ac3bb1fd4fe42ae7e9cb30d1f049, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -216,7 +216,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 8c326da041c5d614fac6a6cacab2f0a5, type: 2}
+  - {fileID: 2100000, guid: 0df8966c823257a45a92a2452133057f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -236,7 +236,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 8c326da041c5d614fac6a6cacab2f0a5, type: 2}
+  - {fileID: 2100000, guid: 0df8966c823257a45a92a2452133057f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -256,7 +256,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: cdb4969941538bd4b8b3f01f0abc1d6d, type: 2}
+  - {fileID: 2100000, guid: 5536399844fe63e488cce92c53e73e09, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -276,7 +276,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: cdb4969941538bd4b8b3f01f0abc1d6d, type: 2}
+  - {fileID: 2100000, guid: 5536399844fe63e488cce92c53e73e09, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
